@@ -24,13 +24,13 @@ let dir;
 document.addEventListener("keydown", direction);
 
 function direction(event) {
-    if(event.keyCode == 87){ 
+    if(event.keyCode == 87 && dir != "down"){ 
         dir = "up";
-    } else if (event.keyCode == 83){ 
+    } else if (event.keyCode == 83 && dir != "up"){ 
         dir = "down";
-    } else if (event.keyCode == 68){ 
+    } else if (event.keyCode == 68 && dir != "left"){ 
         dir = "right";
-    } else if (event.keyCode == 65){ 
+    } else if (event.keyCode == 65 && dir != "right"){ 
         dir = "left";
     } 
 }
