@@ -19,7 +19,21 @@ snake[0] = {
     y: 10*box
 }
 
-let dir = "up";
+let dir;
+
+document.addEventListener("keydown", direction);
+
+function direction(event) {
+    if(event.keyCode == 87){
+        dir = "up";
+    } else if(event.keyCode == 83){
+        dir = "down";
+    } else if(event.keyCode == 68){
+        dir = "right";
+    } else if(event.keyCode == 65){
+        dir = "left";
+    }
+}
 
 function drawGame() {
     ctx.drawImage(ground, 0, 0);
