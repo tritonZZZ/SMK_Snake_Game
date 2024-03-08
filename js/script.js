@@ -16,7 +16,7 @@ let food = {
 let snake = [];
 snake[0] = {
     x: 9*box,
-    y: 10*box
+    y:10*box
 }
 
 let dir;
@@ -24,15 +24,15 @@ let dir;
 document.addEventListener("keydown", direction);
 
 function direction(event) {
-    if(event.keyCode == 87){
+    if(event.keyCode == 87){ 
         dir = "up";
-    } else if(event.keyCode == 83){
+    } else if (event.keyCode == 83){ 
         dir = "down";
-    } else if(event.keyCode == 68){
+    } else if (event.keyCode == 68){ 
         dir = "right";
-    } else if(event.keyCode == 65){
+    } else if (event.keyCode == 65){ 
         dir = "left";
-    }
+    } 
 }
 
 function drawGame() {
@@ -40,9 +40,10 @@ function drawGame() {
     ctx.drawImage(foodImg, food.x, food.y);
 
     for(let i = 0; i < snake.length; i++){
-    ctx.fillStyle = "green";
-    ctx.fillRect(snake[i].x, snake[i].y, box, box);
+        ctx.fillStyle = "green";
+        ctx.fillRect(snake[i].x, snake[i].y, box, box);
     }
+    
 
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
@@ -52,20 +53,15 @@ function drawGame() {
     if (dir == "right") {
         snakeX += box;
     }
-
     if (dir == "left") {
         snakeX -= box;
     }
-
     if (dir == "up") {
         snakeY -= box;
     }
-
     if (dir == "down") {
         snakeY += box;
     }
-
-    snakeX += box;
 
     let newHead = {
         x: snakeX,
@@ -75,4 +71,4 @@ function drawGame() {
     snake.unshift(newHead);
 }
 
-let game = setInterval(drawGame, 10);
+let game = setInterval(drawGame, 100);
