@@ -48,7 +48,12 @@ function drawGame() {
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
 
-    snake.pop();
+    if(snakeX == food.x && snakeY == food.y) {
+        food = {
+            x: Math.floor(Math.random()*17 + 1)*box,
+            y: Math.floor(Math.random()*15 + 3)*box
+        }
+    } else snake.pop();
 
     if (dir == "right") {
         snakeX += box;
