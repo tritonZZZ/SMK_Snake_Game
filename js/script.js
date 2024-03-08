@@ -20,6 +20,7 @@ snake[0] = {
 }
 
 let dir;
+let score = 0;
 
 document.addEventListener("keydown", direction);
 
@@ -44,16 +45,24 @@ function drawGame() {
         ctx.fillRect(snake[i].x, snake[i].y, box, box);
     }
     
+    ctx.fillStyle = "white";
+    ctx.font = "50px Arial";
+    ctx.fillText("Score: " + score, 2.5*box, 1.6*box);
 
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
 
     if(snakeX == food.x && snakeY == food.y) {
+        score++;
         food = {
             x: Math.floor(Math.random()*17 + 1)*box,
             y: Math.floor(Math.random()*15 + 3)*box
         }
     } else snake.pop();
+
+    if(snakeX < box || snakeX > 17*box || snakeY < 3*box || snakeY > 17*box){
+        clearInterval(game);
+    }
 
     if (dir == "right") {
         snakeX += box;
